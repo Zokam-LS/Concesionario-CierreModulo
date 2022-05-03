@@ -1,32 +1,4 @@
-var autos = [
-    {
-        marca: 'Ford',
-        modelo: 'Fiesta',
-        precio: 150000,
-        km: 200,
-        color: 'Azul',
-        cuotas: 12,
-        anio: 2019,
-        patente: 'APL123',
-        vendido: false
-    },
-    {
-        marca: 'Toyota',
-        modelo: 'Corolla',
-        precio: 100000,
-        km: 0,
-        color: 'Blanco',
-        cuotas: 14,
-        anio: 2019,
-        patente: 'JJK116',
-        vendido: false
-    }
-];
-
-//module.exports = autos;
-
-
-//ar autos = require('./autos');
+var autos = require('./autos');
 
 const concesionaria = {
     autos: autos,
@@ -40,7 +12,12 @@ const concesionaria = {
     venderAuto: function(patente){
         let autoVendido = this.buscarAuto(patente);
         autoVendido.vendido = true;
+    },
+    autosParaLaVenta: function(){
+        let autos = this.autos;
+        let autosDisponibles = autos.filter(function(element){
+            return element.vendido===false;
+        });
+        return autosDisponibles;
     }
-};
-concesionaria.venderAuto('APL123')
-console.log(autos);
+}
