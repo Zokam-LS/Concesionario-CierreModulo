@@ -39,5 +39,10 @@ const concesionaria = {
         let totalDeVentas = listaDeVentas.length>0?listaDeVentas.reduce(
             (accumulator,actual)=>accumulator+=actual):0;
             return totalDeVentas;
+    },
+    puedeComprar: function(auto,cliente){
+        let puedeComprarCuota = cliente.capacidadDePagoEnCuotas>=(auto.precio/auto.cuotas);
+        let puedeComprarTotal = cliente.capacidadDePagoTotal>=auto.precio;
+        return puedeComprarCuota && puedeComprarTotal;
     }
 };
