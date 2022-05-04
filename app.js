@@ -19,5 +19,10 @@ const concesionaria = {
             return element.vendido===false;
         });
         return autosDisponibles;
+    },
+    autosNuevos: function(){
+        let disponibles = this.autosParaLaVenta();
+        let autosNuevos = disponibles.filter((element)=>element.km<=100);
+        return autosNuevos;
     }
 }
