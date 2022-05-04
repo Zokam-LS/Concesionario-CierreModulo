@@ -33,5 +33,11 @@ const concesionaria = {
             arrayDeVentas.push(element.precio);
         });
         return arrayDeVentas;
+    },
+    totalDeVentas: function(){
+        let listaDeVentas = this.listaDeVentas();
+        let totalDeVentas = listaDeVentas.length>0?listaDeVentas.reduce(
+            (accumulator,actual)=>accumulator+=actual):0;
+            return totalDeVentas;
     }
-}
+};
