@@ -24,5 +24,14 @@ const concesionaria = {
         let disponibles = this.autosParaLaVenta();
         let autosNuevos = disponibles.filter((element)=>element.km<=100);
         return autosNuevos;
+    },
+    listaDeVentas: function(){
+        let autos = this.autos;
+        let autosVendidos = autos.filter((element)=>element.vendido===true);
+        let arrayDeVentas = [];
+        autosVendidos.forEach(element => {
+            arrayDeVentas.push(element.precio);
+        });
+        return arrayDeVentas;
     }
 }
